@@ -6,38 +6,38 @@ namespace LabAiMinFunConsole
 {
     abstract class Person
     {
-        private double [] _coordinate;
-        private double [] _coordinateValue;
+        private double[] _coordinates;
+        private double _coordinatesValue;
 
-        public Person(double [] coordinate, double [] coordinateValue)
+        public Person(double[] coordinates, double coordinatesValue)
         {
-            _coordinate = coordinate;
-            _coordinateValue = coordinateValue;
+            _coordinates = coordinates;
+            _coordinatesValue = coordinatesValue;
         }
 
-        public double [] Coordinate
+        public double[] Coordinates
         {
             get
             {
-                return _coordinate;
+                return _coordinates;
             }
 
             set
             {
-                _coordinate = value;
+                _coordinates = value;
             }
         }
 
-        public double [] CoordinateValue
+        public double CoordinatesValue
         {
             get
             {
-                return _coordinateValue;
+                return _coordinatesValue;
             }
 
             set
             {
-                _coordinateValue = value;
+                _coordinatesValue = value;
             }
         }
     }
