@@ -7,6 +7,7 @@ namespace LabAiMinFunConsole.View
 {
     class ChildCreator
     {
+        const double EPS = 0.0001;
         Random random = new Random();
         FunctionSumSquare function = new FunctionSumSquare();
         public Child CreateChild(Father father)
@@ -22,7 +23,7 @@ namespace LabAiMinFunConsole.View
             double[] coordinates = new double[count];
             for (int i = 0; i < count; i++)
             {
-                coordinates[i] =  random.NextDouble() + father.Coordinates[i] - random.NextDouble();
+                coordinates[i] =  random.NextDouble() * EPS + father.Coordinates[i] - random.NextDouble() * EPS;
             }
             return coordinates;
         }
