@@ -14,7 +14,8 @@ namespace LabAiMinFunConsole.View
 
         public void StartEvolution()
         {
-            List<Father> fathers = GetFathersFirstDistribution();
+            FatherCreator fatherCreator = new FatherCreator(GetDimension());
+            List<Father> fathers = fatherCreator.Create();
             
             double sumFathersOld;
             double sumFathersYung;
@@ -137,26 +138,6 @@ namespace LabAiMinFunConsole.View
             }
             return partsBetterMore;           
         }
-         
-        private List<Father> GetFathersFirstDistribution()
-        {
-            FatherCreator fatherCreator = new FatherCreator(GetDimension());
-            int countFaters = GetCountFathers();
-            List<Father> fathers = new List<Father>(countFaters);
-            int[] firstCoordinates = ToDistributeEvenFathers(countFaters);
-            for (int i = 0; i < countFaters; i++)
-            {
-                fathers.Add(fatherCreator.CreateFather(firstCoordinates[i]));
-            }
-            /*
-            Console.WriteLine();
-            foreach (Father father in fathers)
-            {
-                Console.WriteLine($"father c: {father.Coordinates[0]}, {father.Coordinates[1]}, v: c:{father.CoordinatesValue}");
-            }
-            */
-            return fathers;
-        }
 
         private int GetDimension()
         {
@@ -165,37 +146,9 @@ namespace LabAiMinFunConsole.View
             return dimension > 0 ? dimension : dimension == 0 ? 1 : -dimension;
         }
 
-        private int GetCountFathers()
-        {
-            Console.WriteLine("Enter count father:");
-            int count = Convert.ToInt32(Console.ReadLine());
-            return count > 0 ? count : count == 0 ? 1 : -count;
-        }
+        
 
-        private int[] ToDistributeEvenFathers(int countFather)
-        {
-            int[] bounds = GetRangeFinder();
-            int[] evenPart = new int[countFather];
-            int range = bounds[1] - bounds[0] - 1;
-            for (int i = 0; i < countFather; i++)
-            {
-                evenPart[i] = Convert.ToInt32((( i + 1) * range) / countFather) + bounds[0];
-                //Console.WriteLine(evenPart[i]);
-            }
-            return evenPart;
-        }
-
-        private int[] GetRangeFinder()
-        {
-            int[] bounds = new int[2];
-            Console.WriteLine("\nEnter range finder:");
-            Console.WriteLine("lower bound: ");
-            bounds[0] = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("upper bound: ");
-            bounds[1] = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
-            return bounds;
-        }
+        
 
 
 
