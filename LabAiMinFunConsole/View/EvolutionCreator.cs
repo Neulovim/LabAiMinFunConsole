@@ -8,13 +8,14 @@ namespace LabAiMinFunConsole.View
 {
     class EvolutionCreator
     {
-        private const int N = 5;
+        
         private const double ALPHA = 0.00000001;
         private int iteration = 1;
 
         public void StartEvolution()
         {
             FatherCreator fatherCreator = new FatherCreator(GetDimension());
+            ChildCreator childCreator = new ChildCreator();
             List<Father> fathers = fatherCreator.Create();
             
             double sumFathersOld;
@@ -53,7 +54,7 @@ namespace LabAiMinFunConsole.View
                     Console.WriteLine($"father c: {f.Coordinates[0]}, {f.Coordinates[1]}, v: c:{f.CoordinatesValue}");
                 */
                 //List<Child> children = GetChildren(GetSortedList(fathers));
-                List<Child> children = GetChildren(Sorter<Father>.GetSortedList(fathers));
+                List<Child> children = childCreator.Create(Sorter<Father>.GetSortedList(fathers));
                 for (int i = 0; i < fathers.Count; i++)
                 {
                     fathers[i].Coordinates = children[i].Coordinates;
@@ -73,6 +74,8 @@ namespace LabAiMinFunConsole.View
                 foreach (Father f in fathers)
                     Console.WriteLine($"father c: {f.Coordinates[0]}, {f.Coordinates[1]}, v: c:{f.CoordinatesValue}");
                 */
+                //fatherCreator.Radius = 1 / Math.Pow(1000, iteration);
+                //childCreator.Radius = 1 / Math.Pow(1000, iteration);
                 
                 iteration += 1;
             }
@@ -88,56 +91,7 @@ namespace LabAiMinFunConsole.View
             return sum;
         }
 
-        private List<Child> GetChildren(List<Father> fathers)
-        {
-            ChildCreator childCreator = new ChildCreator();
-            int countChildren = fathers.Count * N;
-            List<Child> children = new List<Child>(countChildren);
-            
-            int[] childrenDistribute = ToDistributeEvenChildren(countChildren);
-            //int[] childrenDistribute = ToDistributeBetterMoreChildren(countChildren);
-
-            for (int i = 0; i < fathers.Count; i++)
-            {
-                for (int j = 0; j < childrenDistribute[i]; j++)
-                {
-                    children.Add(childCreator.CreateChild(fathers[i]));
-                }
-            }
-            /*
-            Console.WriteLine();
-            foreach (Child child in children)
-            {
-                Console.WriteLine($"child c: {child.Coordinates[0]}, {child.Coordinates[1]}, v: c:{child.CoordinatesValue}");
-            }
-            */
-            return children;
-        }
-
-            private int[] ToDistributeEvenChildren(int countChildren)
-        {
-            int countFathers = Convert.ToInt32(countChildren / N);
-            int[] evenParts = new int[countFathers];            
-            for (int i = 0; i < countFathers; i++)
-            {
-                evenParts[i] = N;
-                //Console.WriteLine(evenPart[i]);
-            }
-            return evenParts;
-        }
-
-        //don't work need check distribute BetterMore the formula
-        private int[] ToDistributeBetterMoreChildren(int countChildren)
-        {
-            int countFathers = Convert.ToInt32(countChildren / N);
-            int[] partsBetterMore = new int[countFathers];
-            for (int i = 0; i < countFathers; i++)
-            {
-                partsBetterMore[i] = Convert.ToInt32(countChildren * (countFathers / 10));
-                Console.WriteLine(partsBetterMore[i]);
-            }
-            return partsBetterMore;           
-        }
+        
 
         private int GetDimension()
         {
