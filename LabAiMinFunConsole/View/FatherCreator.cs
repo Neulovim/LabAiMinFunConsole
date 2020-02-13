@@ -6,11 +6,23 @@ using System.Text;
 namespace LabAiMinFunConsole
 {
     class FatherCreator
-    {
-        const double EPS = 0.0001;
+    {        
         Random random = new Random();
         FunctionSumSquare function = new FunctionSumSquare();
-        
+        private double radius = 0.0001; //0.0001
+        public double Radius 
+        {
+            get 
+            {
+                return radius;
+            }
+
+            set 
+            {
+                radius = value;
+            }
+        }
+
         private int _dimension;
         public int Dimension
         {
@@ -84,7 +96,7 @@ namespace LabAiMinFunConsole
             double[] coordinates = new double[Dimension];
             for (int i = 0; i < coordinates.Length; i++)
             {
-                coordinates[i] = random.NextDouble() * EPS + number - random.NextDouble() * EPS;
+                coordinates[i] = random.NextDouble() * Radius + number - random.NextDouble() * Radius;
             }
             return coordinates;
         }
