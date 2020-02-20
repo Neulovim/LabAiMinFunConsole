@@ -1,7 +1,5 @@
-﻿using LabAiMinFunConsole.Model;
-using LabAiMinFunConsole.View;
-using System;
-using LabAiMinFunConsole.Controller;
+﻿using System;
+using LabAiMinFunConsole.LabOne.Controller;
 
 namespace LabAiMinFunConsole
 {

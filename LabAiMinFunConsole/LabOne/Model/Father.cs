@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LabAiMinFunConsole.Model
+﻿namespace LabAiMinFunConsole.LabOne.Model
 {
     class Father : Person
     {

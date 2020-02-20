@@ -1,10 +1,8 @@
-﻿using LabAiMinFunConsole.Model;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using LabAiMinFunConsole.LabOne.Model;
 
-namespace LabAiMinFunConsole.View
+namespace LabAiMinFunConsole.LabOne.View
 {
     static class Sorter<T> where T: Person
     {

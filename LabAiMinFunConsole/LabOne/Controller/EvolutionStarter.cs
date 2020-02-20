@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using LabAiMinFunConsole.View;
+﻿using LabAiMinFunConsole.LabOne.View;
 
-namespace LabAiMinFunConsole.Controller
+namespace LabAiMinFunConsole.LabOne.Controller
 {
     static class EvolutionStarter
     {

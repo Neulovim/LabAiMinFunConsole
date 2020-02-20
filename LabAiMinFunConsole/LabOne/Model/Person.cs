@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LabAiMinFunConsole
+﻿namespace LabAiMinFunConsole.LabOne.Model
 {
     abstract class Person
     {

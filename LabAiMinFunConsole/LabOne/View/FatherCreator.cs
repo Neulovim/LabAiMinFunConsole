@@ -1,9 +1,8 @@
-﻿using LabAiMinFunConsole.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using LabAiMinFunConsole.LabOne.Model;
 
-namespace LabAiMinFunConsole
+namespace LabAiMinFunConsole.LabOne.View
 {
     class FatherCreator
     {        
