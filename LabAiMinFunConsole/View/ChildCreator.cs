@@ -10,19 +10,8 @@ namespace LabAiMinFunConsole.View
         private const int N = 5;      
         Random random = new Random();
         FunctionSumSquare function = new FunctionSumSquare();
-        private double radius = 0.0001; //0.0001
-        public double Radius
-        {
-            get
-            {
-                return radius;
-            }
+        public double Radius { get; set; } = 0.0001;
 
-            set
-            {
-                radius = value;
-            }
-        }
         public Child Create(Father father)
         {
             double[] coordinates = GetChildCoordinates(father);

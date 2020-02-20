@@ -9,24 +9,12 @@ namespace LabAiMinFunConsole
     {        
         Random random = new Random();
         FunctionSumSquare function = new FunctionSumSquare();
-        private double radius = 0.0001; //0.0001
-        public double Radius 
-        {
-            get 
-            {
-                return radius;
-            }
-
-            set 
-            {
-                radius = value;
-            }
-        }
+        public double Radius { get; set; } = 0.0001;
 
         private int _dimension;
         public int Dimension
         {
-            get { return _dimension; }
+            get => _dimension;
             set
             {
                 if (value < 1)
