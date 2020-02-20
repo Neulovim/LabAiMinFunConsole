@@ -1,6 +1,7 @@
 ﻿using LabAiMinFunConsole.Model;
 using LabAiMinFunConsole.View;
 using System;
+using LabAiMinFunConsole.Controller;
 
 namespace LabAiMinFunConsole
 {
@@ -8,8 +9,9 @@ namespace LabAiMinFunConsole
     {
         static void Main(string[] args)
         {
-            EvolutionCreator evolution = new EvolutionCreator();
-            evolution.StartEvolution();
+            //lab 1
+            EvolutionStarter.Start();
+
         }
     }
 }
