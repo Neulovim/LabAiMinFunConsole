@@ -6,8 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="LabTwo\Controller\" />
-    <Folder Include="LabTwo\View\" />
+    <Folder Include="LabTwo\Resources\" />
   </ItemGroup>
 
 </Project>
